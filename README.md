@@ -4,7 +4,9 @@ Postive integer values only. Prime-Ideal initialized (and generally radical-idea
 
 Written to run concurrently.
 
-## Example-Usasge
+**NOTE:** this package may not be generic enough for your usecase. It is, of course, easy to check by using a simple example similar to the one below. Updates to the code will be made over time to attempt to make it more ready for completely general use.
+
+## Example-Usage
 
 ```go
 package main 
@@ -30,3 +32,12 @@ search := NewHyperparameterSearch(SearchConfig{
 
 finalParameter := search.Run()
 ```
+
+### Configuration Fields
+
+- `MinValue` is the minimum positive integer value that will be considered as a possible candidate. This grid search currently does not process any integers less than 2.
+- `MaxValue` is the maximum positive integer that will be considered as a possible candidate. Use a value of `-1` to allow for infinite max range.
+- `Scorer` is the scoring function that candidate values are scored with.
+- `Branches` specifies how many concurrent workers should run in the search.
+- `Maximize` specified whether this is a maximization optimization search (`true`) or a minimization optimization (`false`)
+- `Verbose` specifies if the search should print current progress to console (`true` / `false`)
