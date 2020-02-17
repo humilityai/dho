@@ -4,7 +4,7 @@ Postive integer values only. Prime-Ideal initialized (and generally radical-idea
 
 Written to run concurrently.
 
-**NOTE:** this package may not be generic enough for your usecase. It is, of course, easy to check by using a simple example similar to the one below. Updates to the code will be made over time to attempt to make it more ready for completely general use.
+**NOTE:** this package may not be generic enough for your usecase. It is, of course, easy to check by using a simple example similar to the one below. Updates to the code will be made over time to attempt to make it more ready for general use.
 
 ## Example-Usage
 
