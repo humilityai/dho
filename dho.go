@@ -138,7 +138,8 @@ func (h *HyperparameterSearch) getBaseScore(base int) (score float64, ok bool) {
 	return
 }
 
-func (h *HyperparameterSearch) optimize() int {
+// Run will run the hyperparmeter search based on the supplied configuration.
+func (h *HyperparameterSearch) Run() int {
 	for {
 		for base, multiplier := range h.Bases {
 			h.wg.Add(1)

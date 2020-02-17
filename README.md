@@ -28,5 +28,5 @@ search := NewHyperparameterSearch(SearchConfig{
     Verbose:  true,
 })
 
-finalParameter := search.optimize()
+finalParameter := search.Run()
 ```

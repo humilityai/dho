@@ -22,7 +22,7 @@ func TestDHOMax(t *testing.T) {
 		Verbose:  true,
 	})
 
-	finalParameter := search.optimize()
+	finalParameter := search.Run()
 	if finalParameter != 21 {
 		t.Errorf("Final parameter was not 21: %d", finalParameter)
 	}
@@ -48,7 +48,7 @@ func TestDHOMin(t *testing.T) {
 		Verbose:  true,
 	})
 
-	finalParameter := search.optimize()
+	finalParameter := search.Run()
 	if finalParameter != 21 {
 		t.Errorf("Final parameter was not 21: %d", finalParameter)
 	}
@@ -74,7 +74,7 @@ func TestDHOLargerMin(t *testing.T) {
 		Verbose:  true,
 	})
 
-	finalParameter := search.optimize()
+	finalParameter := search.Run()
 	if finalParameter != 21 {
 		t.Errorf("Final parameter was not 21: %d", finalParameter)
 	}
@@ -100,7 +100,7 @@ func TestDHOInfinite(t *testing.T) {
 		Verbose:  true,
 	})
 
-	finalParameter := search.optimize()
+	finalParameter := search.Run()
 	if finalParameter != 21 {
 		t.Errorf("Final parameter was not 21: %d", finalParameter)
 	}
