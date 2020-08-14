@@ -19,6 +19,9 @@ import (
 	"math"
 	"runtime"
 	"sync"
+
+	hmath "github.com/humilityai/math"
+	"github.com/humilityai/sam"
 )
 
 // SearchConfig is the configuration object for a discrete hyperparameter
@@ -40,8 +43,8 @@ type SearchConfig struct {
 // for integer (discretized-params) grid searches.
 type HyperparameterSearch struct {
 	Bases       map[int]int
-	BaseScores  mapIntFloat64
-	ParamScores mapIntFloat64
+	BaseScores  sam.MapIntFloat64
+	ParamScores sam.MapIntFloat64
 	config      SearchConfig
 
 	// sync
@@ -60,7 +63,7 @@ type DiscreteParamScoreFunc func(x int) float64
 // or minimizing the score.
 func NewHyperparameterSearch(config SearchConfig) *HyperparameterSearch {
 	bases := make(map[int]int)
-	baseScores := make(mapIntFloat64)
+	baseScores := make(sam.MapIntFloat64)
 
 	if config.Branches < 1 {
 		config.Branches = runtime.NumCPU()
@@ -76,7 +79,7 @@ func NewHyperparameterSearch(config SearchConfig) *HyperparameterSearch {
 		config.MaxValue = math.MaxInt64
 	}
 
-	for _, p := range firstNPrimes(config.Branches) {
+	for _, p := range hmath.FirstNPrimes(config.Branches) {
 		bases[p] = 1
 		if config.Maximize {
 			baseScores[p] = float64(math.MinInt64)
@@ -88,7 +91,7 @@ func NewHyperparameterSearch(config SearchConfig) *HyperparameterSearch {
 	return &HyperparameterSearch{
 		Bases:       bases,
 		BaseScores:  baseScores,
-		ParamScores: make(mapIntFloat64),
+		ParamScores: make(sam.MapIntFloat64),
 		Mutex:       &sync.Mutex{},
 		config:      config,
 		semaphore:   make(chan bool, runtime.NumCPU()),
@@ -255,8 +258,8 @@ func (h *HyperparameterSearch) Run() int {
 	}
 
 	if h.config.Maximize {
-		return h.ParamScores.max()
+		return h.ParamScores.Max()
 	}
 
-	return h.ParamScores.min()
+	return h.ParamScores.Min()
 }

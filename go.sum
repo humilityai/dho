@@ -1,0 +1,5 @@
+github.com/humilityai/math v0.0.0-20200801010805-20d6fafa1f83/go.mod h1:vWYPE/7axq/zgxFv3Qp4NIIMnuifH+aEg4u5VFlCxno=
+github.com/humilityai/math v0.0.0-20200803033757-480d44b783d6 h1:sYlXK/dhWAlUVMTBuOKIHOZH8K467aRylYJzsgNxW8U=
+github.com/humilityai/math v0.0.0-20200803033757-480d44b783d6/go.mod h1:vWYPE/7axq/zgxFv3Qp4NIIMnuifH+aEg4u5VFlCxno=
+github.com/humilityai/sam v0.0.0-20200813225827-257903c54aaf h1:rKeBeBs8vhrIWhycofS9akNr/s3jv4FJljkvRIJ+ou0=
+github.com/humilityai/sam v0.0.0-20200813225827-257903c54aaf/go.mod h1:3lcbohskk67+ehDhtWmT+DZduMLzhXEjT11Q6cg8Dfs=
